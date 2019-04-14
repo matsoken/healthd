@@ -44,7 +44,7 @@ curl http://localhost:9180/health
 ```
 
 Same JSON output filtered for a single service http://server:9180/health/WeatherAPI, NOTE: status is for filtered service only:
-```
+```json
 curl http://localhost:9180/health/WeatherAPI
 {
     "Status": true,
