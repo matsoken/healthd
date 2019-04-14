@@ -1,0 +1,31 @@
+## HTTP Type Check
+- name: WeatherAPI
+  type: HTTP
+  props:
+    method: GET
+    url: https://api.weather.gov/
+
+##TCP Type Check
+- name: GitHub SSH
+  type: TCP
+  props:
+    addr: github.com:22 ## TCP expects format of host:port
+
+## DB Type Check
+## Spaces are ok in the name though may be akward when 
+##  referencing individual service through /heath/<servicename>
+- name: MySQL Check
+  type: DB
+  props:
+    connstr: user:pwd@/test # Use connection strings supported by driver
+    query: select 1
+    dbdriver: mysql  
+
+## Use a TCP check to check health of services without built in 'checker'
+# - name: MongoDBV9 Check
+#   type: TCP
+#   props:
+#     addr: mongo1:27017
+
+
+  
