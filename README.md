@@ -90,7 +90,7 @@ Edit the config.yml and add health checks
     dbdriver: mysql
 ```
 
-Exectue the application, by default it loads config.yml from the working directory:
+Execute the application, by default it loads config.yml from the working directory:
 
 ```
 ./healthd
