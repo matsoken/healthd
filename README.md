@@ -9,7 +9,7 @@ Currently supports for HTTP, TCP and SQL DB checks (MSSQL and MySQL).
 
 * Human output: /
 * JSON: /health
-* JSON Filtered:  /health/<name>
+* JSON Filtered:  /health/checkname
 
 Example output human readable http://server:9180, green is up, red is down:
 
