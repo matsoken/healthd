@@ -5,7 +5,7 @@ This web service is intended to be a simple to deploy heath checker to validate 
 
 Only 2 files to deploy, healthd binary and yaml config file.
 
-Currently supports for HTTP, TCP and SQL DB checks (MSSQL and MySQL).
+Currently supports HTTP, TCP and SQL DB checks (MSSQL and MySQL).
 
 * Human output: /
 * JSON: /health
