@@ -118,16 +118,18 @@ func main() {
 	var configfile string
 	var listen string
 	flag.StringVar(&configfile, "config", "config.yml", "Config file to use")
-	flag.StringVar(&listen, "listen", ":9166", "Listen on address:port default = :9166")
+	flag.StringVar(&listen, "listen", ":9180", "Listen on address:port")
 	flag.Parse()
-	log.Printf("Listening: %s\n", listen)
 
 	checkArray = loadConfig(configfile)
+
 	r := mux.NewRouter()
 
 	r.HandleFunc("/", uihandler)
 	r.HandleFunc("/health", handler)
 	r.HandleFunc("/health/{check}", singlehandler)
+
+	log.Printf("Starting Listener on %s\n", listen)
 	http.ListenAndServe(listen, r)
 }
 
