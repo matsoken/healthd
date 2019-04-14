@@ -12,7 +12,7 @@ Currently supports for HTTP, TCP and SQL DB checks (MSSQL and MySQL).
 * JSON Filtered:  /health/checkname
 
 Example output human readable http://server:9180, green is up, red is down:
-
+![screesnhot](https://raw.githubusercontent.com/matsoken/healthd/assets/healthd-user.PNG)
 
 Same output in JSON http://server:9180/health, note the rollup status:
 ```json
@@ -71,18 +71,18 @@ go build
 Or simply download and extract a release.
 
 
-Edit the config.yml and add health checks
+Edit the config.yml and add health checks, include all external dependencies that your application/system/process needs:
 ```yaml
-- name: MyCheck1
+- name: PricingServiceCheck
   type: HTTP
   props:
     method: GET
-    url: https://www.google.com/
-- name: MyOtherCheck
+    url: https://pricingserver/pricing/health
+- name: ProprietaryServiceCheck
   type: TCP
   props:
-    addr: github.com:22
-- name: MySQL Check
+    addr: internalserver:22
+- name: PrimaryDatabaseMySQL
   type: DB
   props:
     connstr: user:pwd@/test # Use connection strings supported by driver
