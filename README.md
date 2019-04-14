@@ -69,7 +69,7 @@ go build
 ```
 
 Or simply download and extract a release.
-
+https://github.com/matsoken/healthd/releases
 
 Edit the config.yml and add health checks, include all external dependencies that your application/system/process needs:
 ```yaml
