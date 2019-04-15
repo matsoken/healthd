@@ -1,7 +1,7 @@
 # healthd
-Health check web service daemon to validate external service and db dependencies written in GO
+An endpoint for humans and monitoring services to validate service and db dependencies in realtime written in GO
 
-This web service is intended to be a simple to deploy heath checker to validate the status of a systems dependencies.  The intent is to decrease the time it takes to focus troubelshooting on the real issue. It provides both a human readable output and a JSON consumable output for consumption by monitoring sytems and scripts. The service is meant to be run on the web server, docker host, application server that consumes the services so that health is an accurate reflection from the hosts point of view.
+This web service is intended to be a simple to deploy heath checker to validate the status of a systems dependencies.  The intent is to decrease the time it takes to focus troubelshooting on the real issue. It provides both a human readable output and a JSON consumable output for consumption by monitoring sytems and scripts. The service is meant to run on the web server, docker host, application server that consumes the services so that health is an accurate reflection from the hosts point of view in realtime.  A monitoring service can poll the rollup status and/or individual dependency statuses and alert on issues.  Or when troubleshooting, a human operator can quickly validate all dependencies are good at a glance, saving valuable time when trying to resolve a critical issue.  
 
 Only 2 files to deploy, healthd binary and yaml config file.
 
