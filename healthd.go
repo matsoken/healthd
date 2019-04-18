@@ -247,6 +247,18 @@ func getOverallStatus(checks []CheckResult) bool {
 
 }
 
+func validateProps(requiredProps []string, props map[string]string) error {
+
+	for _, v := range requiredProps {
+		if _, ok := props[v]; ok {
+		} else {
+			return fmt.Errorf("Invalid config missing %s", v)
+		}
+	}
+
+	return nil
+}
+
 func runDBCheck(chk Checker) (bool, string) {
 
 	//Validate all the expected DB props exist
@@ -295,14 +307,9 @@ func runTCPCheck(chk Checker) (bool, string) {
 func validateDBProps(chk Checker) error {
 
 	props := []string{"dbdriver", "connstr", "query"}
-	for _, v := range props {
-		if _, ok := chk.Props[v]; ok {
-		} else {
-			return fmt.Errorf("Invalid config missing %s", v)
-		}
-	}
+	err := validateProps(props, chk.Props)
 
-	return nil
+	return err
 
 }
 
@@ -324,14 +331,9 @@ func connectDB(dbdriver string, connstr string, query string) error {
 
 func validateHTTPProps(chk Checker) error {
 	props := []string{"url", "method"}
-	for _, v := range props {
-		if _, ok := chk.Props[v]; ok {
-		} else {
-			return fmt.Errorf("Invalid config missing %s", v)
-		}
-	}
+	err := validateProps(props, chk.Props)
 
-	return nil
+	return err
 
 }
 
@@ -352,14 +354,9 @@ func connectHTTP(url string, method string) error {
 
 func validateTCPProps(chk Checker) error {
 	props := []string{"addr"}
-	for _, v := range props {
-		if _, ok := chk.Props[v]; ok {
-		} else {
-			return fmt.Errorf("Invalid config missing %s", v)
-		}
-	}
+	err := validateProps(props, chk.Props)
 
-	return nil
+	return err
 
 }
 
