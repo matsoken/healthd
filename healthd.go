@@ -70,7 +70,7 @@ var tmpl = `<!doctype html>
                 <div class="col-sm-1 text-white bg-secondary">
                     Resp(ms)
                 </div>
-               <div class="col-sm-4 text-white bg-secondary">
+               <div class="col-sm-5 text-white bg-secondary">
                   Message
                 </div>
                
@@ -91,8 +91,8 @@ var tmpl = `<!doctype html>
               <div class="col-sm-1">
                     {{.Elapsedtime}}
               </div>
-			  <div class="col-sm-4">
-			  	{{.Message}}
+			  <div class="col-sm-6">
+			  <small>{{.Message}}</small>
 			  </div>
 
               
